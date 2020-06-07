@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmployeeMenagement.Models
+﻿namespace EmployeeMenagement.Models
 {
     public class Departament
     {
