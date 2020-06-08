@@ -1,10 +1,10 @@
-﻿namespace EmployeeMenagement.Web.Pages
+﻿namespace EmployeeManagement.Web.Pages
 {
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using EmployeeMenagement.Models;
-    using EmployeeMenagement.Models.Enums;
+    using EmployeeManagement.Models;
+    using EmployeeManagement.Models.Enums;
     using Microsoft.AspNetCore.Components;
 
     public class EmployeeListBase : ComponentBase
@@ -28,7 +28,7 @@
                 Email = "David@pragimtech.com",
                 DateOfBirth = new DateTime(1980, 10, 5),
                 Gender = Gender.Male,
-                Departament = new Departament { DepartmentId = 1, DepartmentName = "IT" },
+                DepartamentId = 1,
                 PhotoPath = "images/john.jpg"
             };
 
@@ -40,7 +40,7 @@
                 Email = "Sam@pragimtech.com",
                 DateOfBirth = new DateTime(1988, 6, 8),
                 Gender = Gender.Male,
-                Departament = new Departament { DepartmentId = 1, DepartmentName = "IT" },
+                DepartamentId = 1,
                 PhotoPath = "images/sam.jpg"
             };
 
@@ -52,7 +52,7 @@
                 Email = "Mary@pragimtech.com",
                 DateOfBirth = new DateTime(1985, 9, 10),
                 Gender = Gender.Male,
-                Departament = new Departament { DepartmentId = 1, DepartmentName = "HR" },
+                DepartamentId = 2,
                 PhotoPath = "images/mary.jpg"
             };
 
@@ -64,7 +64,7 @@
                 Email = "Stef@pragimtech.com",
                 DateOfBirth = new DateTime(1992, 12, 1),
                 Gender = Gender.Male,
-                Departament = new Departament { DepartmentId = 1, DepartmentName = "IT" },
+                DepartamentId = 3,
                 PhotoPath = "images/stefany.jpg"
             };
 

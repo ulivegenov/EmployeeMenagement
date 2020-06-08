@@ -1,8 +1,8 @@
-﻿namespace EmployeeMenagement.Models
+﻿namespace EmployeeManagement.Models
 {
     using System;
 
-    using EmployeeMenagement.Models.Enums;
+    using EmployeeManagement.Models.Enums;
 
     public class Employee
     {
@@ -18,7 +18,7 @@
 
         public Gender Gender { get; set; }
 
-        public Departament Departament { get; set; }
+        public int DepartamentId { get; set; }
 
         public string PhotoPath { get; set; }
     }

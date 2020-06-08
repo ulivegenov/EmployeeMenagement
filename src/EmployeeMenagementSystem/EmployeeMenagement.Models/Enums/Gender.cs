@@ -1,4 +1,4 @@
-﻿namespace EmployeeMenagement.Models.Enums
+﻿namespace EmployeeManagement.Models.Enums
 {
     public enum Gender
     {

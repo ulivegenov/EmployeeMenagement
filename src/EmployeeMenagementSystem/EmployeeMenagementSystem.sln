@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeMenagement.Models", "EmployeeMenagement.Models\EmployeeMenagement.Models.csproj", "{7AE2766F-C18C-48A8-9EFA-5E936CF64576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Models", "EmployeeMenagement.Models\EmployeeManagement.Models.csproj", "{7AE2766F-C18C-48A8-9EFA-5E936CF64576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeMenagement.Web", "EmployeeMenagement.Web\EmployeeMenagement.Web.csproj", "{B91983E7-CA08-413C-A694-6E4D01AE2BA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Web", "EmployeeMenagement.Web\EmployeeManagement.Web.csproj", "{B91983E7-CA08-413C-A694-6E4D01AE2BA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Api", "EmployeeManagement.Api\EmployeeManagement.Api.csproj", "{1E80826B-D3FB-427F-8C55-9FEFD6B2F8EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B91983E7-CA08-413C-A694-6E4D01AE2BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91983E7-CA08-413C-A694-6E4D01AE2BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91983E7-CA08-413C-A694-6E4D01AE2BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E80826B-D3FB-427F-8C55-9FEFD6B2F8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E80826B-D3FB-427F-8C55-9FEFD6B2F8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E80826B-D3FB-427F-8C55-9FEFD6B2F8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E80826B-D3FB-427F-8C55-9FEFD6B2F8EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

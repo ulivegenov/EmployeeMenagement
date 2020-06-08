@@ -1,4 +1,4 @@
-﻿namespace EmployeeMenagement.Models
+﻿namespace EmployeeManagement.Models
 {
     public class Departament
     {
