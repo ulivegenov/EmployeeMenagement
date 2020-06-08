@@ -11,14 +11,15 @@
     {
         public IEnumerable<Employee> Employees { get; set; }
 
-        protected override Task OnInitializedAsync()
+        protected override async Task OnInitializedAsync()
         {
-            this.LoadEmployees();
-            return base.OnInitializedAsync();
+            await Task.Run(this.LoadEmployees);
         }
 
         private void LoadEmployees()
         {
+            System.Threading.Thread.Sleep(3000);
+
             Employee e1 = new Employee
             {
                 EmployeeId = 1,
