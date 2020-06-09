@@ -1,7 +1,8 @@
 namespace EmployeeManagement.Api
 {
     using EmployeeManagement.Api.Models;
-
+    using EmployeeManagement.Api.Repositories;
+    using EmployeeManagement.Api.Repositories.Contracts;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,10 @@ namespace EmployeeManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+
+            services.AddScoped<IDepartamentRepository, DepartamentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
             services.AddControllers();
         }
 
