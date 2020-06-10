@@ -8,14 +8,14 @@
 
     public interface IEmployeeRepository
     {
-        Task<IEnumerable<Employee>> GetEmployees();
+        Task<IEnumerable<Employee>> GetEmployeesAsync();
 
-        Task<Employee> GetEmployee(int employeeId);
+        Task<Employee> GetEmployeeAsync(int employeeId);
 
-        Task<Employee> AddEmployee(Employee employee);
+        Task<Employee> AddEmployeeAsync(Employee employee);
 
-        Task<Employee> Updatemployee(Employee employee);
+        Task<Employee> UpdatemployeeAsync(Employee employee);
 
-        void DeleteEmployee(int employeeId);
+        void DeleteEmployeeAsync(int employeeId);
     }
 }

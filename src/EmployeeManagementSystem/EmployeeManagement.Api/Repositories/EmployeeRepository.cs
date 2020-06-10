@@ -19,7 +19,7 @@
             this.appDbContext = appDbContext;
         }
 
-        public async Task<Employee> AddEmployee(Employee employee)
+        public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
             var result = await this.appDbContext.AddAsync(employee);
 
@@ -28,7 +28,7 @@
             return result.Entity;
         }
 
-        public async void DeleteEmployee(int employeeId)
+        public async void DeleteEmployeeAsync(int employeeId)
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
 
@@ -39,21 +39,21 @@
             }
         }
 
-        public async Task<Employee> GetEmployee(int employeeId)
+        public async Task<Employee> GetEmployeeAsync(int employeeId)
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
 
             return result;
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
             var result = await this.appDbContext.Employees.ToListAsync();
 
             return result;
         }
 
-        public async Task<Employee> Updatemployee(Employee employee)
+        public async Task<Employee> UpdatemployeeAsync(Employee employee)
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
 
