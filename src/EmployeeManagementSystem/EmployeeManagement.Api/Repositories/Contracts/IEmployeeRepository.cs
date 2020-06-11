@@ -12,6 +12,8 @@
 
         Task<Employee> GetEmployeeAsync(int employeeId);
 
+        Task<Employee> GetEmployeeByEmailAsync(string email);
+
         Task<Employee> AddEmployeeAsync(Employee employee);
 
         Task<Employee> UpdatemployeeAsync(Employee employee);

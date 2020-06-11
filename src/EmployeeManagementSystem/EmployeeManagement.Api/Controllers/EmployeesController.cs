@@ -60,9 +60,19 @@
         {
             try
             {
+                // TODO : EXTRACT VALIDATION CODE INTO A SEPARATE METHOD!
                 if (employee == null)
                 {
                     return BadRequest();
+                }
+
+                var emp = await this.employeeRepository.GetEmployeeByEmailAsync(employee.Email);
+
+                if (emp != null)
+                {
+                    ModelState.AddModelError("email", "This email already in use!");
+
+                    return BadRequest(ModelState);
                 }
 
                 var createdEmployee = await this.employeeRepository.AddEmployeeAsync(employee);

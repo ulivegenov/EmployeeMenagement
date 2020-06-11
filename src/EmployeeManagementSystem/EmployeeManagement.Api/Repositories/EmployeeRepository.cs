@@ -46,6 +46,13 @@
             return result;
         }
 
+        public async Task<Employee> GetEmployeeByEmailAsync(string email)
+        {
+            var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.Email == email);
+
+            return result;
+        }
+
         public async Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
             var result = await this.appDbContext.Employees.ToListAsync();
