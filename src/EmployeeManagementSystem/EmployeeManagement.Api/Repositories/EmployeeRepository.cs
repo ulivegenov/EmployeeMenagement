@@ -28,7 +28,7 @@
             return result.Entity;
         }
 
-        public async void DeleteEmployeeAsync(int employeeId)
+        public async Task<Employee> DeleteEmployeeAsync(int employeeId)
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
 
@@ -36,7 +36,11 @@
             {
                 this.appDbContext.Employees.Remove(result);
                 await this.appDbContext.SaveChangesAsync();
+
+                return result;
             }
+
+            return null;
         }
 
         public async Task<Employee> GetEmployeeAsync(int employeeId)

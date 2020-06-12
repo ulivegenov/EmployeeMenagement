@@ -112,5 +112,27 @@
                     "Error updating data!");
             }
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        {
+            try
+            {
+                // TODO : EXTRACT VALIDATION CODE INTO A SEPARATE METHOD!
+                var employeeToDelete = await this.employeeRepository.GetEmployeeAsync(id);
+
+                if (employeeToDelete == null)
+                {
+                    return NotFound($"Empolyee with Id {id} not found!");
+                }
+
+                return await this.employeeRepository.DeleteEmployeeAsync(id);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error deleting data!");
+            }
+        }
     }
 }

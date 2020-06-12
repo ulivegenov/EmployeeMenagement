@@ -18,6 +18,6 @@
 
         Task<Employee> UpdatemployeeAsync(Employee employee);
 
-        void DeleteEmployeeAsync(int employeeId);
+        Task<Employee> DeleteEmployeeAsync(int employeeId);
     }
 }
