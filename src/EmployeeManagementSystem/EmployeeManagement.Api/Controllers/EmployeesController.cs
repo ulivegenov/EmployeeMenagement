@@ -1,13 +1,16 @@
 ﻿namespace EmployeeManagement.Api.Controllers
 {
-    using EmployeeManagement.Api.Repositories.Contracts;
-    using EmployeeManagement.Models;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using EmployeeManagement.Api.Repositories.Contracts;
+    using EmployeeManagement.Models;
+    using EmployeeManagement.Models.Enums;
+
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore.Internal;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -132,6 +135,27 @@
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     "Error deleting data!");
+            }
+        }
+
+        [HttpGet("{search}")]
+        public async Task<ActionResult<Employee>> Search(string name, Gender? gender)
+        {
+            try
+            {
+                var result = await this.employeeRepository.SearchAsync(name, gender);
+
+                if (result.Any())
+                {
+                    return Ok();
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database!");
             }
         }
     }

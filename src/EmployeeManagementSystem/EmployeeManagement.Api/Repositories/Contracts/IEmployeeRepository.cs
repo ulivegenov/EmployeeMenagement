@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
 
     using EmployeeManagement.Models;
-    
+    using EmployeeManagement.Models.Enums;
 
     public interface IEmployeeRepository
     {
@@ -19,5 +19,7 @@
         Task<Employee> UpdatemployeeAsync(Employee employee);
 
         Task<Employee> DeleteEmployeeAsync(int employeeId);
+
+        Task<IEnumerable<Employee>> SearchAsync(string name, Gender? gender);
     }
 }

@@ -2,12 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using EmployeeManagement.Api.Models;
     using EmployeeManagement.Api.Repositories.Contracts;
     using EmployeeManagement.Models;
-    
+    using EmployeeManagement.Models.Enums;
     using Microsoft.EntityFrameworkCore;
 
     public class EmployeeRepository : IEmployeeRepository
@@ -68,6 +69,7 @@
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
 
+            //TODO: USE AUTOMAPPER!
             if (result != null)
             {
                 result.FirstName = employee.FirstName;
@@ -84,6 +86,24 @@
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<Employee>> SearchAsync(string name, Gender? gender)
+        {
+            IQueryable<Employee> query = this.appDbContext.Employees;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(e => e.FirstName.Contains(name)
+                                    || e.LastName.Contains(name));
+            }
+
+            if (gender != null)
+            {
+                query = query.Where(e => e.Gender == gender);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }
