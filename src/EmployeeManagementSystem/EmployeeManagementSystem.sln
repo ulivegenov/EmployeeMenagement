@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Models",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.GlobalConstants", "GlobalConstants\EmployeeManagement.GlobalConstants.csproj", "{C523417B-12B4-417D-9F0A-9B342298CB75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Services.Data", "EmployeeManagement.Services.Data\EmployeeManagement.Services.Data.csproj", "{E861550E-53D4-4D67-96C8-095D9C4D20A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Services.Data", "EmployeeManagement.Services.Data\EmployeeManagement.Services.Data.csproj", "{E861550E-53D4-4D67-96C8-095D9C4D20A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
