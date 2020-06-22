@@ -46,7 +46,24 @@
 
         public async Task<Employee> GetEmployeeAsync(int employeeId)
         {
-            var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+            var result = await this.appDbContext.Employees
+                                                .Where(e => e.EmployeeId == employeeId)
+                                                .Select(e => new Employee 
+                                                {
+                                                    EmployeeId = e.EmployeeId,
+                                                    FirstName = e.FirstName,
+                                                    LastName = e.LastName,
+                                                    DateOfBirth = e.DateOfBirth,
+                                                    Email = e.Email,
+                                                    PhotoPath = e.PhotoPath,
+                                                    Gender = e.Gender,
+                                                    Departament = new Departament
+                                                    {
+                                                        DepartamentId = e.DepartamentId,
+                                                        DepartamentName = e.Departament.DepartamentName,
+                                                    },
+                                                })
+                                                .FirstOrDefaultAsync();
 
             return result;
         }

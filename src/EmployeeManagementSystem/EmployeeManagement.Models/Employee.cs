@@ -27,6 +27,8 @@
         [Required]
         public int DepartamentId { get; set; }
 
+        public Departament Departament { get; set; }
+
         public string PhotoPath { get; set; }
     }
 }
