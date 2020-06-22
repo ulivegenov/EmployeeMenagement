@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
 
+    using EmployeeManagement.GlobalConstants;
     using EmployeeManagement.Models;
     using EmployeeManagement.Services.Data.Contracts;
 
@@ -19,6 +20,7 @@
 
         protected async override Task OnInitializedAsync()
         {
+            this.Id ??= DefaultValues.DefaultId;
             this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
         }
     }
