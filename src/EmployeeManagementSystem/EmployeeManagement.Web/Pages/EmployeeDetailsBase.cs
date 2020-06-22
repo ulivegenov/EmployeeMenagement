@@ -18,10 +18,27 @@
 
         public Employee Employee { get; set; } = new Employee();
 
+        protected string ButtonText { get; set; } = "Show Footer";
+        protected string CssClass { get; set; } = "HideFooter";
+
         protected async override Task OnInitializedAsync()
         {
             this.Id ??= DefaultValues.DefaultId;
             this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
+        }
+
+        protected void ButtonClick()
+        {
+            if (this.ButtonText == "Hide Footer")
+            {
+                this.ButtonText = "Show Footer";
+                this.CssClass = "HideFooter";
+            }
+            else
+            {
+                this.ButtonText = "Hide Footer";
+                this.CssClass = null;
+            }
         }
     }
 }
