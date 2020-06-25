@@ -16,6 +16,8 @@
 
         public IEnumerable<Employee> Employees { get; set; }
 
+        public bool ShowFooter { get; set; } = false;
+
         protected override async Task OnInitializedAsync()
         {
             this.Employees = (await this.EmployeeService.GetEmployees()).ToList();
