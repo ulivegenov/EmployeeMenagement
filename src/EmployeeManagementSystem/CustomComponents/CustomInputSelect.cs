@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagement.Web.Pages
+﻿namespace CustomComponents
 {
     using Microsoft.AspNetCore.Components.Forms;
 
