@@ -9,7 +9,7 @@
         public int DepartamentId { get; set; }
 
         [Required]
-        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMaxLength)]
+        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMinLength)]
         public string DepartamentName { get; set; }
     }
 }

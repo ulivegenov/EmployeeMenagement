@@ -11,13 +11,14 @@
         public int EmployeeId { get; set; }
 
         [Required]
-        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMaxLength)]
+        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMinLength)]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMaxLength)]
+        [StringLength(AttributeConstraints.NameMaxLength, MinimumLength = AttributeConstraints.NameMinLength)]
         public string LastName { get; set; }
 
+        [EmailAddress]
         public string Email { get; set; }
 
         public DateTime DateOfBirth { get; set; }
