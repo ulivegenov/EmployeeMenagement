@@ -3,6 +3,7 @@
     using EmployeeManagement.Api.Models;
     using EmployeeManagement.Api.Repositories.Contracts;
     using EmployeeManagement.Models;
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -18,16 +19,16 @@
             this.appDbContext = appDbContext;
         }
 
-        public Departament GetDepartament(int departamentId)
+        public async Task<Departament> GetDepartamentAsync(int departamentId)
         {
-            var result = this.appDbContext.Departaments.FirstOrDefault(d => d.DepartamentId == departamentId);
+            var result = await this.appDbContext.Departaments.FirstOrDefaultAsync(d => d.DepartamentId == departamentId);
 
             return result;
         }
 
-        public IEnumerable<Departament> GetDepartaments()
+        public async Task<IEnumerable<Departament>> GetDepartamentsAsync()
         {
-            var result = this.appDbContext.Departaments;
+            var result = await this.appDbContext.Departaments.ToListAsync();
 
             return result;
         }

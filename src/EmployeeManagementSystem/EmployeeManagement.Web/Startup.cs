@@ -1,15 +1,12 @@
 namespace EmployeeManagement.Web
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+
     using EmployeeManagement.Services.Data;
     using EmployeeManagement.Services.Data.Contracts;
+
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.HttpsPolicy;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
@@ -30,6 +27,10 @@ namespace EmployeeManagement.Web
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44309/");
+            });
+            services.AddHttpClient<IDepartamentService, DepartamentService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44309/");
             });
