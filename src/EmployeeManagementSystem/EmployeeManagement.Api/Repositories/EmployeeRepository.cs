@@ -56,6 +56,7 @@
                                                     Email = e.Email,
                                                     PhotoPath = e.PhotoPath,
                                                     Gender = e.Gender,
+                                                    DepartamentId = e.DepartamentId,
                                                     Departament = new Departament
                                                     {
                                                         DepartamentId = e.DepartamentId,

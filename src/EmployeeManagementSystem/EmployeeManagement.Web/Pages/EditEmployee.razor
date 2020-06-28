@@ -40,12 +40,12 @@ else
                 Departament
             </label>
             <div class="col-sm-10">
-                <InputSelect id="departament" class="form-control" @bind-Value="DepartamentId">
+                <CustomInputSelect id="departament" class="form-control" @bind-Value="Employee.DepartamentId">
                     @foreach (var dept in Departaments)
                         {
                         <option value="@dept.DepartamentId">@dept.DepartamentName</option>
                         }
-                </InputSelect>
+                </CustomInputSelect>
             </div>
         </div>
     </EditForm>

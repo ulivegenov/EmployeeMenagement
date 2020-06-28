@@ -23,13 +23,10 @@
 
         public List<Departament> Departaments { get; set; } = new List<Departament>();
 
-        public string DepartamentId { get; set; }
-
         protected override async Task OnInitializedAsync()
         {
             this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
             this.Departaments = (await this.DepartamentService.GetDepartamentsAsync()).ToList();
-            this.DepartamentId = this.Employee.Departament.DepartamentId.ToString();
         }
     }
 }
