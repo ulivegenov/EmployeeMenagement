@@ -1,13 +1,16 @@
 ﻿namespace EmployeeManagement.Web.Pages
 {
-    using EmployeeManagement.Models;
-    using EmployeeManagement.Services.Data.Contracts;
-    using EmployeeManagement.Web.Models;
-    using Microsoft.AspNetCore.Components;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using AutoMapper;
+
+    using EmployeeManagement.Models;
+    using EmployeeManagement.Services.Data.Contracts;
+    using EmployeeManagement.Web.Models;
+
+    using Microsoft.AspNetCore.Components;
 
     public class EditEmployeeBase : ComponentBase
     {
@@ -16,6 +19,9 @@
 
         [Inject]
         public IDepartamentService DepartamentService { get; set; }
+
+        [Inject]
+        public IMapper Mapper { get; set; }
 
         public Employee Employee { get; set; } = new Employee();
 
@@ -31,17 +37,7 @@
             this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
             this.Departaments = (await this.DepartamentService.GetDepartamentsAsync()).ToList();
 
-            // Refactor later with AutoMapper.
-            EditEmployeeModel.EmployeeId = Employee.EmployeeId;
-            EditEmployeeModel.FirstName = Employee.FirstName;
-            EditEmployeeModel.LastName = Employee.LastName;
-            EditEmployeeModel.Email = Employee.Email;
-            EditEmployeeModel.ConfirmEmail = Employee.Email;
-            EditEmployeeModel.DateOfBirth = Employee.DateOfBirth;
-            EditEmployeeModel.Gender = Employee.Gender;
-            EditEmployeeModel.PhotoPath = Employee.PhotoPath;
-            EditEmployeeModel.DepartamentId = Employee.DepartamentId;
-            EditEmployeeModel.Departament = Employee.Departament;
+            Mapper.Map(this.Employee, this.EditEmployeeModel);
         }
 
         protected void HandleValidSubmit()
