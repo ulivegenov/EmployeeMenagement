@@ -89,25 +89,20 @@
             }
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult<Employee>> UpdateEmployee(int id, Employee employee)
+        [HttpPut()]
+        public async Task<ActionResult<Employee>> UpdateEmployee(Employee employee)
         {
             try
             {
                 // TODO : EXTRACT VALIDATION CODE INTO A SEPARATE METHOD!
-                if (id != employee.EmployeeId)
-                {
-                    return BadRequest("Employee ID mismatch!");
-                }
-
-                var employeeToUpdate = await this.employeeRepository.GetEmployeeAsync(id);
+                var employeeToUpdate = await this.employeeRepository.GetEmployeeAsync(employee.EmployeeId);
 
                 if (employeeToUpdate == null)
                 {
-                    return NotFound($"Empolyee with Id {id} not found!");
+                    return NotFound($"Empolyee with Id {employee.EmployeeId} not found!");
                 }
 
-                return await this.employeeRepository.UpdatemployeeAsync(employeeToUpdate);
+                return await this.employeeRepository.UpdateEmployeeAsync(employee);
             }
             catch (Exception)
             {

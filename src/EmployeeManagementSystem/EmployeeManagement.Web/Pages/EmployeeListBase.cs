@@ -20,7 +20,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-            this.Employees = (await this.EmployeeService.GetEmployees()).ToList();
+            this.Employees = (await this.EmployeeService.GetEmployeesAsync()).ToList();
         }
     }
 }

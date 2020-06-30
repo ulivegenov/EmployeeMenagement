@@ -24,7 +24,7 @@
         protected async override Task OnInitializedAsync()
         {
             this.Id ??= DefaultValues.DefaultId;
-            this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
+            this.Employee = await this.EmployeeService.GetEmployeeAsync(int.Parse(this.Id));
         }
 
         protected void ButtonClick()

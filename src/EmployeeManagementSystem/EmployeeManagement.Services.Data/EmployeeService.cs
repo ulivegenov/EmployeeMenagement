@@ -18,14 +18,19 @@
             this.httpClient = httpClient;
         }
 
-        public async Task<Employee> GetEmployee(int id)
+        public async Task<Employee> GetEmployeeAsync(int id)
         {
             return await this.httpClient.GetJsonAsync<Employee>($"api/employees/{id}");
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
             return await this.httpClient.GetJsonAsync<Employee[]>("api/employees");
+        }
+
+        public async Task<Employee> UpdateEmployeeAsync(Employee updatedEmployee)
+        {
+            return await this.httpClient.PutJsonAsync<Employee>("api/employees", updatedEmployee);
         }
     }
 }

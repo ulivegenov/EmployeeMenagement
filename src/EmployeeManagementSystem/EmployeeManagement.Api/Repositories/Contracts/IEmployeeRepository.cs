@@ -16,7 +16,7 @@
 
         Task<Employee> AddEmployeeAsync(Employee employee);
 
-        Task<Employee> UpdatemployeeAsync(Employee employee);
+        Task<Employee> UpdateEmployeeAsync(Employee employee);
 
         Task<Employee> DeleteEmployeeAsync(int employeeId);
 

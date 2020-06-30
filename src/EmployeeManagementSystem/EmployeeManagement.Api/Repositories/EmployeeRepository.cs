@@ -82,7 +82,7 @@
             return result;
         }
 
-        public async Task<Employee> UpdatemployeeAsync(Employee employee)
+        public async Task<Employee> UpdateEmployeeAsync(Employee employee)
         {
             var result = await this.appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
 

@@ -7,8 +7,10 @@
 
     public interface IEmployeeService
     {
-        Task<IEnumerable<Employee>> GetEmployees();
+        Task<IEnumerable<Employee>> GetEmployeesAsync();
 
-        Task<Employee> GetEmployee(int id);
+        Task<Employee> GetEmployeeAsync(int id);
+
+        Task<Employee> UpdateEmployeeAsync(Employee updatedEmployee);
     }
 }

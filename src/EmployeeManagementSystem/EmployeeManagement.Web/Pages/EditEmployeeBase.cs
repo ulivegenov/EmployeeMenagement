@@ -23,6 +23,9 @@
         [Inject]
         public IMapper Mapper { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         public Employee Employee { get; set; } = new Employee();
 
         public EditEmployeeModel EditEmployeeModel { get; set; } = new EditEmployeeModel();
@@ -34,14 +37,21 @@
 
         protected override async Task OnInitializedAsync()
         {
-            this.Employee = await this.EmployeeService.GetEmployee(int.Parse(this.Id));
+            this.Employee = await this.EmployeeService.GetEmployeeAsync(int.Parse(this.Id));
             this.Departaments = (await this.DepartamentService.GetDepartamentsAsync()).ToList();
 
-            Mapper.Map(this.Employee, this.EditEmployeeModel);
+            this.Mapper.Map(this.Employee, this.EditEmployeeModel);
         }
 
-        protected void HandleValidSubmit()
+        protected async Task HandleValidSubmit()
         {
+            this.Mapper.Map(this.EditEmployeeModel, this.Employee);
+            var result = await this.EmployeeService.UpdateEmployeeAsync(this.Employee);
+
+            if (result != null)
+            {
+                this.NavigationManager.NavigateTo("/");
+            }
         }
     }
 }
