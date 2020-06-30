@@ -8,6 +8,7 @@
     <ProjectReference Include="..\CustomComponents\CustomComponents.csproj" />
     <ProjectReference Include="..\EmployeeManagement.Models\EmployeeManagement.Models.csproj" />
     <ProjectReference Include="..\EmployeeManagement.Services.Data\EmployeeManagement.Services.Data.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Web.Models\EmployeeManagement.Web.Models.csproj" />
     <ProjectReference Include="..\GlobalConstants\EmployeeManagement.GlobalConstants.csproj" />
   </ItemGroup>
 
