@@ -8,10 +8,10 @@
     {
         public EmployeeProfile()
         {
-            CreateMap<Employee, EditEmployeeModel>()
+            CreateMap<Employee, EmployeeFormModel>()
                 .ForMember(dest => dest.ConfirmEmail,
                            opt => opt.MapFrom(src => src.Email));
-            CreateMap<EditEmployeeModel, Employee>();
+            CreateMap<EmployeeFormModel, Employee>();
         }
     }
 }

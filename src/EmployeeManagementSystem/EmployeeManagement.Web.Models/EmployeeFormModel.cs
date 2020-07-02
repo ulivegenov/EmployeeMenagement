@@ -7,7 +7,7 @@
     using EmployeeManagement.Models;
     using EmployeeManagement.Models.Enums;
 
-    public class EditEmployeeModel
+    public class EmployeeFormModel
     {
         public int EmployeeId { get; set; }
 

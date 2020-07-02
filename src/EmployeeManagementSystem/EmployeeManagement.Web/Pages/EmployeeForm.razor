@@ -1,10 +1,11 @@
 ﻿@page "/editEmployee/{id}"
+@page "/createEmployee"
 
-@inherits EditEmployeeBase
+@inherits EmployeeFormBase
 
-    <EditForm Model="@EditEmployeeModel" OnValidSubmit="HandleValidSubmit">
+    <EditForm Model="@EmployeeFormModel" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
-        <h3>Edit Employee</h3>
+        <h3>@PageHeaderText</h3>
         <hr />
         <ValidationSummary />
         <div class="form-group row">
@@ -12,8 +13,8 @@
                 First Name
             </label>
             <div class="col-sm-10">
-                <InputText id="firstName" class="form-control" placeholder="First Name" @bind-Value="EditEmployeeModel.FirstName" />
-                <ValidationMessage For="@(() => EditEmployeeModel.FirstName)" />
+                <InputText id="firstName" class="form-control" placeholder="First Name" @bind-Value="EmployeeFormModel.FirstName" />
+                <ValidationMessage For="@(() => EmployeeFormModel.FirstName)" />
             </div>
         </div>
         <div class="form-group row">
@@ -21,8 +22,8 @@
                 Last Name
             </label>
             <div class="col-sm-10">
-                <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="EditEmployeeModel.LastName" />
-                <ValidationMessage For="@(() => EditEmployeeModel.LastName)" />
+                <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="EmployeeFormModel.LastName" />
+                <ValidationMessage For="@(() => EmployeeFormModel.LastName)" />
             </div>
         </div>
         <div class="form-group row">
@@ -30,8 +31,8 @@
                 Email
             </label>
             <div class="col-sm-10">
-                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EditEmployeeModel.Email" />
-                <ValidationMessage For="@(() => EditEmployeeModel.Email)" />
+                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.Email" />
+                <ValidationMessage For="@(() => EmployeeFormModel.Email)" />
             </div>
         </div>
         <div class="form-group row">
@@ -39,8 +40,8 @@
                 Confirm Email
             </label>
             <div class="col-sm-10">
-                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EditEmployeeModel.ConfirmEmail" />
-                <ValidationMessage For="@(() => EditEmployeeModel.ConfirmEmail)" />
+                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.ConfirmEmail" />
+                <ValidationMessage For="@(() => EmployeeFormModel.ConfirmEmail)" />
             </div>
         </div>
         <div class="form-group row">
@@ -48,7 +49,7 @@
                 Departament
             </label>
             <div class="col-sm-10">
-                <CustomInputSelect id="departament" class="form-control" @bind-Value="EditEmployeeModel.DepartamentId">
+                <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.DepartamentId">
                     @foreach (var dept in Departaments)
                     {
                         <option value="@dept.DepartamentId">@dept.DepartamentName</option>
@@ -61,7 +62,7 @@
                 Gender
             </label>
             <div class="col-sm-10">
-                <CustomInputSelect id="departament" class="form-control" @bind-Value="EditEmployeeModel.Gender">
+                <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.Gender">
                     @foreach (var gender in Enum.GetValues(typeof(Gender)))
                     {
                         <option value="@gender">@gender</option>
@@ -74,7 +75,7 @@
                 Date Of Birth
             </label>
             <div class="col-sm-10">
-                <InputDate @bind-Value="EditEmployeeModel.DateOfBirth" class="form-control" />
+                <InputDate @bind-Value="EmployeeFormModel.DateOfBirth" class="form-control" />
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>

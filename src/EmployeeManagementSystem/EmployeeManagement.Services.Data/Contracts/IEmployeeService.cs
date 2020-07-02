@@ -12,5 +12,7 @@
         Task<Employee> GetEmployeeAsync(int id);
 
         Task<Employee> UpdateEmployeeAsync(Employee updatedEmployee);
+
+        Task<Employee> CreateEmployeeAsync(Employee newEmployee);
     }
 }
