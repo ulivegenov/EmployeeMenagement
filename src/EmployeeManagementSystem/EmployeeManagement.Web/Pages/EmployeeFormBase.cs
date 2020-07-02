@@ -6,7 +6,7 @@
     using System.Threading.Tasks;
 
     using AutoMapper;
-
+    using CustomComponents;
     using EmployeeManagement.Models;
     using EmployeeManagement.Services.Data.Contracts;
     using EmployeeManagement.Web.Models;
@@ -37,6 +37,8 @@
         public string PageHeaderText { get; set; }
 
         public List<Departament> Departaments { get; set; } = new List<Departament>();
+
+        protected ConfirmBase DeleteConfirmation { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -85,10 +87,18 @@
             }
         }
 
-        protected async Task Delete_Click()
+        protected void Delete_Click()
         {
-            await this.EmployeeService.DeleteEmployeeAsync(this.Employee.EmployeeId);
-            this.NavigationManager.NavigateTo("/");
+            this.DeleteConfirmation.Show();
+        }
+
+        protected async Task ConfirmDelete_Click(bool deleteConfirm)
+        {
+            if (deleteConfirm)
+            {
+                await this.EmployeeService.DeleteEmployeeAsync(this.Employee.EmployeeId);
+                this.NavigationManager.NavigateTo("/");
+            }
         }
     }
 }

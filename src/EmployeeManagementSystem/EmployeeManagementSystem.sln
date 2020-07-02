@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomComponents", "CustomComponents\CustomComponents.csproj", "{6018F0D9-7A6F-4D22-960D-7AB011DC15AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Web.Models", "EmployeeManagement.Web.Models\EmployeeManagement.Web.Models.csproj", "{AB94ED5B-5834-4DAD-9CEC-C9984EBB2BF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Web.Models", "EmployeeManagement.Web.Models\EmployeeManagement.Web.Models.csproj", "{AB94ED5B-5834-4DAD-9CEC-C9984EBB2BF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,85 +3,88 @@
 
 @inherits EmployeeFormBase
 
-    <EditForm Model="@EmployeeFormModel" OnValidSubmit="HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <h3>@PageHeaderText</h3>
-        <hr />
-        <ValidationSummary />
-        <div class="form-group row">
-            <label for="firstName" class="col-sm-2 col-form-label">
-                First Name
-            </label>
-            <div class="col-sm-10">
-                <InputText id="firstName" class="form-control" placeholder="First Name" @bind-Value="EmployeeFormModel.FirstName" />
-                <ValidationMessage For="@(() => EmployeeFormModel.FirstName)" />
-            </div>
+<EditForm Model="@EmployeeFormModel" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <h3>@PageHeaderText</h3>
+    <hr />
+    <ValidationSummary />
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">
+            First Name
+        </label>
+        <div class="col-sm-10">
+            <InputText id="firstName" class="form-control" placeholder="First Name" @bind-Value="EmployeeFormModel.FirstName" />
+            <ValidationMessage For="@(() => EmployeeFormModel.FirstName)" />
         </div>
-        <div class="form-group row">
-            <label for="lastName" class="col-sm-2 col-form-label">
-                Last Name
-            </label>
-            <div class="col-sm-10">
-                <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="EmployeeFormModel.LastName" />
-                <ValidationMessage For="@(() => EmployeeFormModel.LastName)" />
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">
+            Last Name
+        </label>
+        <div class="col-sm-10">
+            <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="EmployeeFormModel.LastName" />
+            <ValidationMessage For="@(() => EmployeeFormModel.LastName)" />
         </div>
-        <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">
-                Email
-            </label>
-            <div class="col-sm-10">
-                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.Email" />
-                <ValidationMessage For="@(() => EmployeeFormModel.Email)" />
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">
+            Email
+        </label>
+        <div class="col-sm-10">
+            <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.Email" />
+            <ValidationMessage For="@(() => EmployeeFormModel.Email)" />
         </div>
-        <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">
-                Confirm Email
-            </label>
-            <div class="col-sm-10">
-                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.ConfirmEmail" />
-                <ValidationMessage For="@(() => EmployeeFormModel.ConfirmEmail)" />
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">
+            Confirm Email
+        </label>
+        <div class="col-sm-10">
+            <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EmployeeFormModel.ConfirmEmail" />
+            <ValidationMessage For="@(() => EmployeeFormModel.ConfirmEmail)" />
         </div>
-        <div class="form-group row">
-            <label for="departament" class="col-sm-2 col-form-label">
-                Departament
-            </label>
-            <div class="col-sm-10">
-                <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.DepartamentId">
-                    @foreach (var dept in Departaments)
-                    {
-                        <option value="@dept.DepartamentId">@dept.DepartamentName</option>
-                    }
-                </CustomInputSelect>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="departament" class="col-sm-2 col-form-label">
+            Departament
+        </label>
+        <div class="col-sm-10">
+            <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.DepartamentId">
+                @foreach (var dept in Departaments)
+                {
+                    <option value="@dept.DepartamentId">@dept.DepartamentName</option>
+                }
+            </CustomInputSelect>
         </div>
-        <div class="form-group row">
-            <label for="gender" class="col-sm-2 col-form-label">
-                Gender
-            </label>
-            <div class="col-sm-10">
-                <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.Gender">
-                    @foreach (var gender in Enum.GetValues(typeof(Gender)))
-                    {
-                        <option value="@gender">@gender</option>
-                    }
-                </CustomInputSelect>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="gender" class="col-sm-2 col-form-label">
+            Gender
+        </label>
+        <div class="col-sm-10">
+            <CustomInputSelect id="departament" class="form-control" @bind-Value="EmployeeFormModel.Gender">
+                @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                {
+                    <option value="@gender">@gender</option>
+                }
+            </CustomInputSelect>
         </div>
-        <div class="form-group row">
-            <label for="dateOfBirth" class="col-sm-2 col-form-label">
-                Date Of Birth
-            </label>
-            <div class="col-sm-10">
-                <InputDate @bind-Value="EmployeeFormModel.DateOfBirth" class="form-control" />
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="dateOfBirth" class="col-sm-2 col-form-label">
+            Date Of Birth
+        </label>
+        <div class="col-sm-10">
+            <InputDate @bind-Value="EmployeeFormModel.DateOfBirth" class="form-control" />
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-        @if (Employee.EmployeeId != 0)
-        {
-            <button class="btn btn-danger" type="button" @onclick="Delete_Click">Delete</button>
-        }
-    </EditForm>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    @if (Employee.EmployeeId != 0)
+    {
+        <button class="btn btn-danger" type="button" @onclick="Delete_Click">Delete</button>
+    }
+</EditForm>
+
+<Confirm ConfirmationChanged="ConfirmDelete_Click" @ref="DeleteConfirmation"
+         ConfirmationMessage="@($"Are you sure you want to delete \"{Employee.FirstName} {Employee.LastName}\"?")"></Confirm>
 

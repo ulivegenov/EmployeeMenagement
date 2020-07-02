@@ -1,7 +1,7 @@
 ﻿namespace EmployeeManagement.Web.Pages
 {
     using System.Threading.Tasks;
-
+    using CustomComponents;
     using EmployeeManagement.Models;
     using EmployeeManagement.Services.Data.Contracts;
 
@@ -21,10 +21,20 @@
         [Parameter]
         public EventCallback<int> OnEmployeeDeleted { get; set; }
 
-        protected async Task Delete_Click()
+        public ConfirmBase DeleteConfirmation { get; set; }
+
+        protected void Delete_Click()
         {
-            await this.EmployeeService.DeleteEmployeeAsync(this.Employee.EmployeeId);
-            await this.OnEmployeeDeleted.InvokeAsync(this.Employee.EmployeeId);
+            this.DeleteConfirmation.Show();
+        }
+
+        protected async Task ConfirmDelete_Click(bool deleteComfirmed)
+        {
+            if (deleteComfirmed)
+            {
+                await this.EmployeeService.DeleteEmployeeAsync(this.Employee.EmployeeId);
+                await this.OnEmployeeDeleted.InvokeAsync(this.Employee.EmployeeId);
+            }
         }
     }
 }
