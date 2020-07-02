@@ -84,5 +84,11 @@
                 this.NavigationManager.NavigateTo("/");
             }
         }
+
+        protected async Task Delete_Click()
+        {
+            await this.EmployeeService.DeleteEmployeeAsync(this.Employee.EmployeeId);
+            this.NavigationManager.NavigateTo("/");
+        }
     }
 }

@@ -23,6 +23,11 @@
             return await this.httpClient.PostJsonAsync<Employee>("api/employees", newEmployee);
         }
 
+        public async Task DeleteEmployeeAsync(int id)
+        {
+            await this.httpClient.DeleteAsync($"api/employees/{id}");
+        }
+
         public async Task<Employee> GetEmployeeAsync(int id)
         {
             return await this.httpClient.GetJsonAsync<Employee>($"api/employees/{id}");

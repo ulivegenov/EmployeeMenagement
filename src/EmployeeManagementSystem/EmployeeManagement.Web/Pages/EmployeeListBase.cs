@@ -18,6 +18,11 @@
 
         public bool ShowFooter { get; set; } = false;
 
+        protected async Task EmployeeDeleted()
+        {
+            this.Employees = (await this.EmployeeService.GetEmployeesAsync()).ToList();
+        }
+
         protected override async Task OnInitializedAsync()
         {
             this.Employees = (await this.EmployeeService.GetEmployeesAsync()).ToList();
